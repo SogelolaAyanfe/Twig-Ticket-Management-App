@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'ayanfeoluwa/stage-2-twig',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'c5625c7c737d1e8689c49c40f6bec1f8e1920590',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'ayanfeoluwa/stage-2-twig' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'c5625c7c737d1e8689c49c40f6bec1f8e1920590',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
