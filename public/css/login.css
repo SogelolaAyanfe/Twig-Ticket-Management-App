@@ -1,0 +1,123 @@
+
+.Login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: white;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.message {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.header {
+  display: flex;
+  background: #351764;
+  width: 100%;
+  color: white;
+}
+.header h2 {
+  padding: 10px;
+}
+
+form {
+  padding-bottom: 30px;
+}
+
+.form-header {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.form-group input {
+  border: 2px solid black;
+  border-radius: 8px;
+  height: 50px;
+  width: 600px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 200px;
+  white-space: normal;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button:hover {
+  background: #333;
+  border-color: #333;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+@media screen and (max-width: 770px) {
+  button {
+    justify-content: center;
+    width: 100px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    gap: 20px;
+  }
+
+  .form-group input {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .form-group input {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .form-group input {
+    width: 250px;
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+     <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    {% if current_page == 'home' %}
+        <link rel="stylesheet" href="/public/css/landingpage.css">
+    {% endif %}
+     {% if current_page == 'login' %}
+        <link rel="stylesheet" href="/public/css/login.css">
+    {% endif %}
+    {% if current_page == 'signup' %}
+        <link rel="stylesheet" href="/public/css/signup.css">
+    {% endif %}
+    {% if current_page == 'dashboard' %}
+        <link rel="stylesheet" href="/public/css/dashboard.css">
+    {% endif %}
+    {% if current_page == 'ticket-manager' %}
+        <link rel="stylesheet" href="/public/css/ticket-manager.css">
+    {% endif %}
+</head>
+<body>
+   <div class="app-container">
+        {% block content %}{% endblock %}
+    </div>
+        {% include 'components/footer.html.twig' %}
+    </div>
+</body>
+</html>

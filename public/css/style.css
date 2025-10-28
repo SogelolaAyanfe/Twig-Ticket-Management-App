@@ -1,0 +1,279 @@
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  background-color: black;
+  width: 100%;
+}
+
+.app-container {
+  width: 100%;
+  margin: 0;
+  /* display: flex; */
+  flex-direction: column;
+}
+.ticket-form {
+  max-width: 1440px;
+  background: white;
+  padding: 2rem;
+}
+
+.form-header {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-flex {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  max-width: 1440px;
+}
+
+.form-group input {
+  border: 2px solid black;
+  border-radius: 8px;
+  height: 50px;
+  width: 600px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding-left: 15px;
+}
+.form-group input::placeholder {
+  color: black;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-group.full textarea {
+  border: 2px solid black;
+  border-radius: 8px;
+  height: 200px;
+  width: 600px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+textarea::placeholder {
+  color: black;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-group.full {
+  width: 100%;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 200px;
+  white-space: normal;
+  font-family: "Montserrat", sans-serif;
+}
+
+.go-back{
+  background: #351764;
+  border: none;
+  width: 100px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.go-back:hover {
+  color: #ecebff;
+  background: #1f1f1f;
+}
+
+  a{
+    text-decoration: none;
+    color: white;
+  }
+
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 15px 20px;
+  width: 40%;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-message {
+  color: white;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  border: none;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  width: 40%;
+  box-shadow: 0 4px 15px rgba(238, 90, 111, 0.3);
+  animation: slideIn 0.3s ease-out;
+}
+
+button:hover {
+  background: #333;
+  border-color: #333;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button-submit {
+  align-self: flex-start;
+  color: white;
+  padding: 8px 16px;
+}
+
+.button-submit:hover {
+  background: #333;
+}
+
+@media screen and (max-width: 770px) {
+  .form-flex {
+    flex-direction: column;
+  }
+
+  .form-group {
+    max-width: 500px;
+  }
+
+  .form-group input,
+  .form-group.full textarea {
+    width: 80%;
+  }
+
+   .error-message, .message {
+    width: 480px;
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .app-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.footer-wrapper {
+  width: 100%;
+  background: #351764;
+}
+
+.footer {
+  background: #351764;
+  color: white;
+  text-align: center;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.app-header,
+.main-content {
+  width: 100%;
+}
+
+@media screen and (min-width: 1441px) {
+  .app-header,
+  .main-content {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.footer-wrapper {
+  max-width: 1440px;
+}
+
+
+
+@media screen and (min-width: 1441px) {
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+
+@media screen and (max-width: 415px) {
+
+  .error-message, .message {
+    width: 220px;
+  }
+}

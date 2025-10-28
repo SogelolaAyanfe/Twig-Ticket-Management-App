@@ -1,0 +1,68 @@
+<div class="ticket-form">
+  <section class="form-header">
+  <button class="go-back"><a href="/dashboard">←</a></button>
+    <h2>Create Ticket</h2>
+    
+    {# {% if createSuccess %}
+      <p class="success-message">{{ createSuccess }}</p>
+    {% endif %}
+    
+    {% if createError %}
+      <p class="error-message">{{ createError }}</p>
+    {% endif %} #}
+    
+    <form class="form-flex" method="POST" action="/ticket-manager">
+      <input type="hidden" name="action" value="create">
+      
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="Enter ticket title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" name="status" required>
+          <option value="">Select status</option>
+          <option value="OPEN">Open</option>
+          <option value="IN_PROGRESS">In Progress</option>
+          <option value="CLOSED">Closed</option>
+        </select>
+      </div>
+
+      <div class="form-group full">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Enter ticket details" rows="4" required></textarea>
+      </div>
+
+      <button type="submit" class="button-submit">Create Ticket</button>
+    </form>
+  </section>
+</div>
+
+<script>
+  // Handle success message fade out
+  {% if createSuccess %}
+  setTimeout(function() {
+    var msg = document.querySelector('.success-message');
+    if (msg) {
+      msg.classList.add('fade-out');
+      setTimeout(function() {
+        msg.style.display = 'none';
+      }, 500);
+    }
+  }, 3000);
+  {% endif %}
+  
+  // Handle error message fade out
+  {% if createError %}
+  setTimeout(function() {
+    var msg = document.querySelector('.error-message');
+    if (msg) {
+      msg.classList.add('fade-out');
+      setTimeout(function() {
+        msg.style.display = 'none';
+      }, 500);
+    }
+  }, 3000);
+  {% endif %}
+</script>

@@ -1,0 +1,114 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+  <div class="ticket-manager">
+    <header class="ticket-header">
+      <h2>Ticket Management</h2>
+    </header>
+    
+    <div>
+      {% include 'components/ticket-form.html.twig' %}
+    </div>
+
+    {# Display error messages #}
+    {% if getError %}
+      <p class="error-message">{{ getError }}</p>
+    {% endif %}
+    {% if updateError %}
+      <p class="error-message">{{ updateError }}</p>
+    {% endif %}
+    {% if deleteError %}
+      <p class="error-message">{{ deleteError }}</p>
+    {% endif %}
+
+    <section class="ticket-list">
+      <h2>All Tickets</h2>
+      <div class="ticket-cards">
+        {% if tickets|length == 0 %}
+          <p class="no-tickets">No tickets available. Create one to get started!</p>
+        {% else %}
+          {% for ticket in tickets %}
+            <div class="ticket-card {{ ticket.status|lower }}" id="ticket-{{ ticket.id }}">
+              {# Check if this ticket is being edited #}
+              {% if editingTicket == ticket.id %}
+                {# Edit Mode #}
+                <form method="POST" action="/ticket-manager" class="edit-mode">
+                  <input type="hidden" name="action" value="update">
+                  <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+                  
+                  <div class="edit-group-form">
+                    <label>Title</label>
+                    <input
+                      type="text"
+                      name="title"
+                      value="{{ ticket.title }}"
+                      class="edit-input"
+                      required
+                    />
+                  </div>
+                  
+                  <div class="edit-group-form">
+                    <label>Status</label>
+                    <select name="status" class="edit-select" required>
+                      <option value="OPEN" {% if ticket.status == 'OPEN' %}selected{% endif %}>Open</option>
+                      <option value="IN_PROGRESS" {% if ticket.status == 'IN_PROGRESS' %}selected{% endif %}>In Progress</option>
+                      <option value="CLOSED" {% if ticket.status == 'CLOSED' %}selected{% endif %}>Closed</option>
+                    </select>
+                  </div>
+                  
+                  <div class="edit-group-form">
+                    <label>Description</label>
+                    <textarea
+                      name="description"
+                      rows="3"
+                      class="edit-textarea"
+                      required
+                    >{{ ticket.description }}</textarea>
+                  </div>
+                  
+                  <div class="ticket-actions">
+                    <button type="submit" class="small-button save-button">Save</button>
+                    <button class="small-button cancel-button"><a href="/ticket-manager" >Cancel</a></button>
+                  </div>
+                </form>
+              {% else %}
+                {# View Mode #}
+                <div class="ticket-header-card">
+                  <h4>{{ ticket.title }}</h4>
+                  <span class="status-tag {{ ticket.status|lower }}">
+                    {{ ticket.status|replace({'_': ' '}) }}
+                  </span>
+                </div>
+                <p>{{ ticket.description }}</p>
+                <div class="ticket-actions">
+                  <a href="/ticket-manager?edit={{ ticket.id }}" class="small-button" >Edit</a>
+                  <button 
+                    class="delete-button"  
+                    onclick="confirmDelete('{{ ticket.id }}', '{{ ticket.title|e('js') }}')"
+                  >
+                    Delete
+                  </button>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </section>
+  </div>
+
+  {# Delete confirmation and form #}
+  <form id="delete-form" method="POST" action="/ticket-manager" style="display: none;">
+    <input type="hidden" name="action" value="delete">
+    <input type="hidden" name="ticket_id" id="delete-ticket-id">
+  </form>
+
+  <script>
+    function confirmDelete(ticketId, ticketTitle) {
+      if (confirm('Are you sure you want to delete the ticket: "' + ticketTitle + '"?')) {
+        document.getElementById('delete-ticket-id').value = ticketId;
+        document.getElementById('delete-form').submit();
+      }
+    }
+  </script>
+{% endblock %}

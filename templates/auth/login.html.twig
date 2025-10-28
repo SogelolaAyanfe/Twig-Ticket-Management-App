@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+ <div class="Login-form">
+    <div class="header">
+      <h2>Ticketed</h2>
+    </div>
+    <div class="form-header">
+      <h2>Log in</h2>
+      <p>Log in to your account by filling in the information below.</p>
+    </div>
+    <form id="form-login" method="POST" action="/login">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br /><br />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required /><br /><br />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    {% if success %}
+      <p class="success-message">{{ success }}</p>
+    {% endif %}
+    {% if error %}
+      <p class="error-message">{{ error }}</p>
+    {% endif %}
+    
+    <p class="form-footer">Don't have an account? <a href="/signup">Sign up</a></p>
+  </div>
+  
+  <script>
+    
+     {% if success %}
+    setTimeout(function() {
+        var msg = document.querySelector('.success-message');
+        if (msg) {
+            msg.classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = '/dashboard';
+            }, 500);
+        }
+    }, 2000);
+    {% endif %}
+   
+    {% if error %}
+    setTimeout(function() {
+        var msg = document.querySelector('.error-message');
+        if (msg) {
+            msg.classList.add('fade-out');
+            setTimeout(function() {
+                msg.style.display = 'none';
+            }, 500);
+        }
+    }, 3000);
+    {% endif %}
+</script>
+{% endblock %}
