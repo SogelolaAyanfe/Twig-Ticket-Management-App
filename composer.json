@@ -13,12 +13,7 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "twig/twig": "^3.0"
-    },
-    "config": {
-        "platform": {
-            "php": "8.1"
-        }
+        "php": "^7.3|^8.0",
+        "twig/twig": "^2.0"
     }
 }
