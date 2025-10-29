@@ -10,6 +10,10 @@
   animation: slideIn 0.3s ease-out;
 }
 
+a{
+  color: purple;
+}
+
 .error-message {
   color: white;
   background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
