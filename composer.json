@@ -12,8 +12,8 @@
             "email": "ayanfe.sogelola@gmail.com"
         }
     ],
-    "require": {
-        "php": "^7.3|^8.0",
-        "twig/twig": "^2.0"
+   "require": {
+        "php": "8.2",
+        "twig/twig": "^3.0"
     }
 }
