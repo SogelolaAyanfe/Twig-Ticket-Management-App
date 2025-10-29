@@ -24,7 +24,7 @@ PHP 8.2+ • Twig 3.0 • Bcrypt • Sessions • Railway
 ### Installation
 ```bash
 # Clone the repository
-`git clone https://github.com/YOUR_USERNAME/stage-2-twig.git`
+`git clone https://github.com/SogelolaAyanfe/Twig-Ticket-Management-App/.git`
 `cd stage-2-twig`
 
 # Install dependencies
